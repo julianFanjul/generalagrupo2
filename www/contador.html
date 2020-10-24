@@ -13,83 +13,179 @@
     </div>
     <div class="page-content">
         <div id="contador" class="row">
-            <div id="thispoints" class="col-33">
-                <button class="col button button-fill color-pink">Pink</button>
-                <button class="col button button-fill color-pink">Pink</button>
-                <button class="col button button-fill color-pink">Pink</button>
-                <button class="col button button-fill color-pink">Pink</button>
-                <button class="col button button-fill color-pink">Pink</button>
-                <button class="col button button-fill color-pink">Pink</button>
-                <button class="col button button-fill color-pink">Pink</button>
-                <button class="col button button-fill color-pink">Pink</button>
-                <button class="col button button-fill color-pink">Pink</button>
-                <button class="col button button-fill color-pink">Pink</button>
 
-            </div>
-            <div id="player1points" class="col-33">
-                <table>
+            <table class="col-100">
+                <thead>
                     <tr>
-                        <th id="player1"></th>
+                        <th class="col-33"></th>
+                        <th class="col-33" id="player1"></th>
+                        <th class="col-33" id="player2"></th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <td>TOTAL</td>
+                        <td id="totalEq1">-</td>
+                        <td>-</td>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    <tr>
+                        <td class="col-33"><a class="link sheet-open col-33 col button button-fill color-pink" href="#"
+                                data-sheet=".my-sheet">
+                                1</a>
+                        </td>
 
-                    </tr>
-                    <tr>
-                        <td>10</td>
-                    </tr>
-                    <tr>
-                        <td>10</td>
-                    </tr>
-                    <tr>
-                        <td>10</td>
-                    </tr>
-                    <tr>
-                        <td>10</td>
-                    </tr>
-                    <tr>
-                        <td>10</td>
-                    </tr>
-                    <tr>
-                        <td>10</td>
-                    </tr>
-                    <tr>
-                        <td>10</td>
-                    </tr>
-                    <tr>
-                        <td>10</td>
-                    </tr>
-                </table>
-            </div>
-            <div id="player2points" class="col-33">
-                <table>
-                    <tr>
-                        <th id="player2"></th>
+                        <td><button value="1" class="button button-fill color-pink player1"><a
+                                    class="link sheet-open col-33 col button button-fill color-pink" href="#"
+                                    data-sheet=".my-sheet" onclick="mostrar(1)" id="b1">-</a></button></td>
 
+                        <td><button value="1" class="button button-fill color-pink player2">-</button></td>
                     </tr>
                     <tr>
-                        <td>10</td>
+                        <td> <button class="col button button-fill color-pink">2</button></td>
+                        <td><button value="2" class="button button-fill color-pink player1"><a
+                                    class="link sheet-open col-33 col button button-fill color-pink" href="#"
+                                    data-sheet=".my-sheet" onclick="mostrar(2)" id="b2">-</a></button></td>
+                        <td>-</td>
                     </tr>
                     <tr>
-                        <td>10</td>
+                        <td> <button class="col button button-fill color-pink">3</button></td>
+                        <td><button value="3" class="button button-fill color-pink player1"><a
+                                    class="link sheet-open col-33 col button button-fill color-pink" href="#"
+                                    data-sheet=".my-sheet" onclick="mostrar(3)" id="b3">-</a></button></td>
+                        <td>-</td>
                     </tr>
                     <tr>
-                        <td>10</td>
+                        <td> <button class="col button button-fill color-pink">4</button></td>
+                        <td><button value="4" class="button button-fill color-pink player1"><a
+                                    class="link sheet-open col-33 col button button-fill color-pink" href="#"
+                                    data-sheet=".my-sheet" onclick="mostrar(4)" id="b4">-</a></button></td>
+                        <td>-</td>
                     </tr>
                     <tr>
-                        <td>10</td>
+                        <td> <button class="col button button-fill color-pink">5</button></td>
+                        <td><button value="5" class="button button-fill color-pink player1"><a
+                                    class="link sheet-open col-33 col button button-fill color-pink" href="#"
+                                    data-sheet=".my-sheet" onclick="mostrar(5)" id="b5">-</a></button></td>
+                        <td>-</td>
                     </tr>
                     <tr>
-                        <td>10</td>
+                        <td> <button class="col button button-fill color-pink">6</button></td>
+                        <td><button value="6" class="button button-fill color-pink player1"><a
+                                    class="link sheet-open col-33 col button button-fill color-pink" href="#"
+                                    data-sheet=".my-sheet" onclick="mostrar(6)" id="b6">-</a></button></td>
+                        <td>-</td>
                     </tr>
                     <tr>
-                        <td>10</td>
+                        <td> <button class="col button button-fill color-pink">escalera</button></td>
+                        <td>-</td>
+                        <td>-</td>
                     </tr>
                     <tr>
-                        <td>10</td>
+                        <td> <button class="col button button-fill color-pink">full</button></td>
+                        <td>-</td>
+                        <td>-</td>
                     </tr>
                     <tr>
-                        <td>10</td>
+                        <td> <button class="col button button-fill color-pink">poker</button></td>
+                        <td>-</td>
+                        <td>-</td>
                     </tr>
-                </table>
+                    <tr>
+                        <td> <button class="col button button-fill color-pink">generala</button></td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td> <button class="col button button-fill color-pink">generala doble</button></td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+            <!-- modal del 1 al 6 -->
+            <div class="sheet-modal my-sheet" style="height:auto;">
+                <div class=" toolbar">
+                    <div class="toolbar-inner">
+                        <div class="left"></div>
+                        <div class="right"><button id="anotarpoint" onclick="anotar()"> <a class="link sheet-close"
+                                    href="#">anotar</a></button></div>
+                    </div>
+                </div>
+                <div class="sheet-modal-inner">
+                    <div class="list">
+                        <ul>
+                            <li>
+                                <label class="item-radio item-radio-icon-end item-content">
+                                    <input type="radio" name="demo-radio-end" value="1" checked id="r1" />
+                                    <i class="icon icon-radio"></i>
+                                    <div class="item-inner">
+                                        <div class="item-title" id="1"></div>
+                                    </div>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="item-radio item-radio-icon-end item-content">
+                                    <input type="radio" name="demo-radio-end" value="2" id="r2" />
+                                    <i class="icon icon-radio"></i>
+                                    <div class="item-inner">
+                                        <div class="item-title" id="2"></div>
+                                    </div>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="item-radio item-radio-icon-end item-content">
+                                    <input type="radio" name="demo-radio-end" value="3" id="r3" />
+                                    <i class="icon icon-radio"></i>
+                                    <div class="item-inner">
+                                        <div class="item-title" id="3"></div>
+                                    </div>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="item-radio item-radio-icon-end item-content">
+                                    <input type="radio" name="demo-radio-end" value="4" id="r4" />
+                                    <i class="icon icon-radio"></i>
+                                    <div class="item-inner">
+                                        <div class="item-title" id="4"></div>
+                                    </div>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="item-radio item-radio-icon-end item-content">
+                                    <input type="radio" name="demo-radio-end" value="5" id="r5" />
+                                    <i class="icon icon-radio"></i>
+                                    <div class="item-inner">
+                                        <div class="item-title" id="5"></div>
+                                    </div>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="item-radio item-radio-icon-end item-content">
+                                    <input type="radio" name="demo-radio-end" value="6" id="r6" />
+                                    <i class="icon icon-radio"></i>
+                                    <div class="item-inner">
+                                        <div class="item-title" id="6">-</div>
+                                    </div>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="item-radio item-radio-icon-end item-content">
+                                    <input type="radio" name="demo-radio-end" value="7" id="r7" />
+                                    <i class="icon icon-radio"></i>
+                                    <div class="item-inner">
+                                        <div class="item-title">tachar</div>
+                                    </div>
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
+            <!-- modal del 1 al 6 -->
         </div>
     </div>
 </div>

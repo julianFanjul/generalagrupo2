@@ -36,8 +36,13 @@ var app = new Framework7({
 
 var mainView = app.views.create('.view-main');
 
-var jugador1 = "dfdfdf";
-var jugador2 = "dfdfdf";
+var jugador1 = "";
+var jugador2 = "";
+var chequedpoint = "";
+var pointscheck = "";
+valor2 = 0;
+var puntosEq1 = 0;
+
 
 
 
@@ -56,10 +61,8 @@ $$(document).on('page:init', function (e) {
 $$(document).on('page:init', '.page[data-name="inicio"]', function (e) {
   // Do something here when page with data-name="about" attribute loaded and initialized
   $$('#comenzarcont').on('click', function () {
-    alert('andando');
     jugador1 = $$('#jugador1').val();
     jugador2 = $$('#jugador2').val();
-    alert(jugador2 + jugador1);
   })
 
 })
@@ -70,9 +73,46 @@ $$(document).on('page:init', '.page[data-name="inicio"]', function (e) {
 
 })
 
+function mostrar(num) {
+  valor2 = parseInt(num);
+  for (let i = 0; i <= 5; i++) {
+    pointscheck = num * i;
+    $$('#' + i).text(pointscheck);
+    console.log(pointscheck);
+    chequedpoint = num;
+  }
+}
+
+
+function anotar() {
+
+  if ($$('input:checked').val() <= 5) {
+    var multiplo = $$('input:checked').val();
+    var valor1 = parseInt(multiplo);
+    var suma = valor1 * valor2;
+    $$('#b' + chequedpoint).text(suma);
+    puntosEq1 += parseInt(suma);
+    $$('#totalEq1').text(puntosEq1);
+  } else if ($$('input:checked').val() == 6) {
+    $$('#b' + chequedpoint).text('-');
+  } else {
+    $$('#b' + chequedpoint).text('x');
+  }
+
+
+}
+
+
+
+
 $$(document).on('page:init', '.page[data-name="contador"]', function (e) {
   $$('#player1').text(jugador1);
   $$('#player2').text(jugador2);
+
+
+
+
+
 
 
 })
