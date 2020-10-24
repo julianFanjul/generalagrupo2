@@ -16,19 +16,12 @@ var app = new Framework7({
   // Add default routes
   routes: [
     {
+      path: '/about/',
+      url: 'about.html',
+    },
+    {
       path: '/inicio/',
       url: 'inicio.html',
-      options: {
-        transition: 'f7-circle',
-      },
-    },
-    //https://framework7.io/docs/view.html para transicion de pagina a pagina
-    {
-      path: '/contador/',
-      url: 'contador.html',
-      options: {
-        transition: 'f7-circle',
-      },
     },
   ]
   // ... other parameters
@@ -43,7 +36,7 @@ var jugador2 = "dfdfdf";
 
 // Handle Cordova Device Ready Event
 $$(document).on('deviceready', function () {
-
+  console.log("Device is ready!");
 });
 
 // Option 1. Using one 'page:init' handler for all pages
@@ -61,18 +54,12 @@ $$(document).on('page:init', '.page[data-name="inicio"]', function (e) {
     jugador2 = $$('#jugador2').val();
     alert(jugador2 + jugador1);
   })
-
+  alert('Helsddssdsdsdo');
+  console.log(jugador2);
 })
 
 $$(document).on('page:init', '.page[data-name="inicio"]', function (e) {
 
-
-
-})
-
-$$(document).on('page:init', '.page[data-name="contador"]', function (e) {
-  $$('#player1').text(jugador1);
-  $$('#player2').text(jugador2);
-
+  console.log(e);
 
 })

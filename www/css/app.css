@@ -84,4 +84,28 @@
 	font-family: 'Poppins', Arial, sans-serif;
 }
 
+.users {
+  display: flex;
+  justify-content: center;
+}
+
+.usuarios, .usuarios::placeholder{
+  text-align: center;
+}
+.comienzo {
+  display: flex;
+  justify-content: center;
+}
+#comenzarcont{
+  width: 50%;
+
+}
+
+#contador {
+  display: flex;
+}
+
+# thispoints {
+  
+}
 
