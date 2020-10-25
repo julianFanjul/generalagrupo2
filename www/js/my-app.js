@@ -35,13 +35,15 @@ var app = new Framework7({
 });
 
 var mainView = app.views.create('.view-main');
-
+var player = false;
 var jugador1 = "";
 var jugador2 = "";
 var chequedpoint = "";
 var pointscheck = "";
 valor2 = 0;
 var puntosEq1 = 0;
+var puntosEq2 = 0;
+var vueltas = 0;
 
 
 
@@ -73,31 +75,91 @@ $$(document).on('page:init', '.page[data-name="inicio"]', function (e) {
 
 })
 
+
 function mostrar(num) {
   valor2 = parseInt(num);
+  $$('.player2').on('click', function () {
+    player = "2";
+    console.log('andando player 2 ' + player);
+  })
+  $$('.player1').on('click', function () {
+    player = "1"
+    console.log('andando player 1 ' + player);
+  })
   for (let i = 0; i <= 5; i++) {
     pointscheck = num * i;
     $$('#' + i).text(pointscheck);
-    console.log(pointscheck);
+    chequedpoint = num;
+  }
+}
+
+function mostrar2(num) {
+  valor2 = parseInt(num);
+  for (let i = 0; i <= 2; i++) {
+    if (i == 1) { pointscheck = num; } else if (i == 2) { pointscheck = num + 5; }
+    $$('#e' + i).text(pointscheck);
+    switch (num) {
+      case 20: chequedpoint = "7";
+        break;
+      case 30: chequedpoint = "8";
+        break;
+      case 40: chequedpoint = "9";
+        break;
+      case 50: chequedpoint = "10";
+        break;
+      case 100: chequedpoint = "11";
+        break;
+
+    }
     chequedpoint = num;
   }
 }
 
 
-function anotar() {
 
-  if ($$('input:checked').val() <= 5) {
-    var multiplo = $$('input:checked').val();
-    var valor1 = parseInt(multiplo);
-    var suma = valor1 * valor2;
-    $$('#b' + chequedpoint).text(suma);
-    puntosEq1 += parseInt(suma);
-    $$('#totalEq1').text(puntosEq1);
-  } else if ($$('input:checked').val() == 6) {
-    $$('#b' + chequedpoint).text('-');
-  } else {
-    $$('#b' + chequedpoint).text('x');
+
+
+function anotar(r) {
+  switch (r) {
+    case 1:
+      if ($$('input:checked').val() <= 5) {
+        var multiplo = $$('input:checked').val();
+        var valor1 = parseInt(multiplo);
+        var suma = valor1 * valor2;
+        $$('#' + player + chequedpoint).text(suma);
+        if (player == "1") { console.log('sumando a equipo1'); puntosEq1 += parseInt(suma); $$('#totalEq1').text(puntosEq1); } else if (player == "2") { console.log('sumando a equipo2'); puntosEq2 += parseInt(suma); $$('#totalEq2').text(puntosEq2); }
+
+      } else if ($$('input:checked').val() == 6) {
+        $$('#' + player + chequedpoint).text('-');
+      } else {
+        $$('#' + player + chequedpoint).text('x');
+      }
+      break;
+    case 2:
+
+      if ($$('input:checked').val() == 1) {
+        $$('#' + player + chequedpoint).html(valor2);
+        if (player == 1) {
+          puntosEq1 += parseInt(valor2);
+          $$('#totalEq1').text(puntosEq1);
+        } else if (player == 2) {
+          puntosEq2 += parseInt(valor2);
+          $$('#totalEq2').text(puntosEq2);
+        }
+
+      }
+      else if ($$('input:checked').val() == 2) {
+        valor2 += 5;
+        if (player == "1") { puntosEq1 += valor2; $$('#totalEq1').text(puntosEq1); } else if (player == "2") { puntosEq2 += valor2; $$('#totalEq2').text(puntosEq2); }
+        $$('#' + player + chequedpoint).html(valor2);
+      } else if ($$('input:checked').val() == 6) {
+        $$('#' + player + chequedpoint).text('-');
+      } else {
+        $$('#' + player + chequedpoint).text('x');
+      }
+      break;
   }
+
 
 
 }
