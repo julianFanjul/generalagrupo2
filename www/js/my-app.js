@@ -94,8 +94,7 @@ function anotar(r) {
     case 1:
       if ($$('input:checked').val() <= 5) {
         var multiplo = $$('input:checked').val();
-        var valor1 = parseInt(multiplo);
-        var suma = valor1 * valor2;
+        var suma = parseInt(multiplo) * valor2;
         $$('#' + player + chequedpoint).text(suma);
         if (player == "1") { console.log('sumando a equipo1'); puntosEq1 += parseInt(suma); $$('#totalEq1').text(puntosEq1); } else if (player == "2") { console.log('sumando a equipo2'); puntosEq2 += parseInt(suma); $$('#totalEq2').text(puntosEq2); }
       } else if ($$('input:checked').val() == 6) {
