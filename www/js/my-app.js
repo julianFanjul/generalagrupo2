@@ -1,4 +1,3 @@
-
 // If we need to use custom DOM library, let's save it to $$ variable:
 var $$ = Dom7;
 
@@ -40,12 +39,95 @@ var jugador1 = "";
 var jugador2 = "";
 var chequedpoint = "";
 var pointscheck = "";
-valor2 = 0;
+var valor2 = 0;
 var puntosEq1 = 0;
 var puntosEq2 = 0;
 var vueltas = 0;
 
+//las funcionas mostrar colocan los valores correspondientes al modal que se abre cuando tocas poner los puntos
 
+//funcion mostrar es la que se ejecuta cuando queres anotar un numero del 1 al 6
+function mostrar(num) {
+  valor2 = parseInt(num);
+  $$('.player2').on('click', function () {
+    player = "2";
+    console.log('andando player 2 ' + player);
+  })
+  $$('.player1').on('click', function () {
+    player = "1"
+    console.log('andando player 1 ' + player);
+  })
+  for (let i = 0; i <= 5; i++) {
+    pointscheck = num * i;
+    $$('#' + i).text(pointscheck);
+    chequedpoint = num;
+  }
+}
+//funcion mostrar es la que se ejecuta cuando queres anotar un numero del 1 al 6
+
+//funcion mostrar2 es la que se ejecuta cuando tenes que mostrar para escalera poker o generala
+function mostrar2(num) {
+  valor2 = parseInt(num);
+  for (let i = 0; i <= 2; i++) {
+    if (i == 1) { pointscheck = num; } else if (i == 2) { pointscheck = num + 5; }
+    $$('#e' + i).text(pointscheck);
+    switch (num) {
+      case 20: chequedpoint = "7";
+        break;
+      case 30: chequedpoint = "8";
+        break;
+      case 40: chequedpoint = "9";
+        break;
+      case 50: chequedpoint = "10";
+        break;
+      case 100: chequedpoint = "11";
+        break;
+    }
+    chequedpoint = num;
+  }
+}
+//funcion mostrar2 es la que se ejecuta cuando tenes que mostrar para escalera poker o generala
+//las funcionas mostrar colocan los valores correspondientes al modal que se abre cuando tocas poner los puntos
+
+function anotar(r) {
+  switch (r) {
+    case 1:
+      if ($$('input:checked').val() <= 5) {
+        var multiplo = $$('input:checked').val();
+        var valor1 = parseInt(multiplo);
+        var suma = valor1 * valor2;
+        $$('#' + player + chequedpoint).text(suma);
+        if (player == "1") { console.log('sumando a equipo1'); puntosEq1 += parseInt(suma); $$('#totalEq1').text(puntosEq1); } else if (player == "2") { console.log('sumando a equipo2'); puntosEq2 += parseInt(suma); $$('#totalEq2').text(puntosEq2); }
+      } else if ($$('input:checked').val() == 6) {
+        $$('#' + player + chequedpoint).text('-');
+      } else {
+        $$('#' + player + chequedpoint).text('x');
+      }
+      break;
+    case 2:
+
+      if ($$('input:checked').val() == 1) {
+        $$('#' + player + chequedpoint).html(valor2);
+        if (player == 1) {
+          puntosEq1 += parseInt(valor2);
+          $$('#totalEq1').text(puntosEq1);
+        } else if (player == 2) {
+          puntosEq2 += parseInt(valor2);
+          $$('#totalEq2').text(puntosEq2);
+        }
+      }
+      else if ($$('input:checked').val() == 2) {
+        valor2 += 5;
+        if (player == "1") { puntosEq1 += valor2; $$('#totalEq1').text(puntosEq1); } else if (player == "2") { puntosEq2 += valor2; $$('#totalEq2').text(puntosEq2); }
+        $$('#' + player + chequedpoint).html(valor2);
+      } else if ($$('input:checked').val() == 6) {
+        $$('#' + player + chequedpoint).text('-');
+      } else {
+        $$('#' + player + chequedpoint).text('x');
+      }
+      break;
+  }
+}
 
 
 // Handle Cordova Device Ready Event
@@ -66,115 +148,9 @@ $$(document).on('page:init', '.page[data-name="inicio"]', function (e) {
     jugador1 = $$('#jugador1').val();
     jugador2 = $$('#jugador2').val();
   })
-
 })
-
-$$(document).on('page:init', '.page[data-name="inicio"]', function (e) {
-
-
-
-})
-
-
-function mostrar(num) {
-  valor2 = parseInt(num);
-  $$('.player2').on('click', function () {
-    player = "2";
-    console.log('andando player 2 ' + player);
-  })
-  $$('.player1').on('click', function () {
-    player = "1"
-    console.log('andando player 1 ' + player);
-  })
-  for (let i = 0; i <= 5; i++) {
-    pointscheck = num * i;
-    $$('#' + i).text(pointscheck);
-    chequedpoint = num;
-  }
-}
-
-function mostrar2(num) {
-  valor2 = parseInt(num);
-  for (let i = 0; i <= 2; i++) {
-    if (i == 1) { pointscheck = num; } else if (i == 2) { pointscheck = num + 5; }
-    $$('#e' + i).text(pointscheck);
-    switch (num) {
-      case 20: chequedpoint = "7";
-        break;
-      case 30: chequedpoint = "8";
-        break;
-      case 40: chequedpoint = "9";
-        break;
-      case 50: chequedpoint = "10";
-        break;
-      case 100: chequedpoint = "11";
-        break;
-
-    }
-    chequedpoint = num;
-  }
-}
-
-
-
-
-
-function anotar(r) {
-  switch (r) {
-    case 1:
-      if ($$('input:checked').val() <= 5) {
-        var multiplo = $$('input:checked').val();
-        var valor1 = parseInt(multiplo);
-        var suma = valor1 * valor2;
-        $$('#' + player + chequedpoint).text(suma);
-        if (player == "1") { console.log('sumando a equipo1'); puntosEq1 += parseInt(suma); $$('#totalEq1').text(puntosEq1); } else if (player == "2") { console.log('sumando a equipo2'); puntosEq2 += parseInt(suma); $$('#totalEq2').text(puntosEq2); }
-
-      } else if ($$('input:checked').val() == 6) {
-        $$('#' + player + chequedpoint).text('-');
-      } else {
-        $$('#' + player + chequedpoint).text('x');
-      }
-      break;
-    case 2:
-
-      if ($$('input:checked').val() == 1) {
-        $$('#' + player + chequedpoint).html(valor2);
-        if (player == 1) {
-          puntosEq1 += parseInt(valor2);
-          $$('#totalEq1').text(puntosEq1);
-        } else if (player == 2) {
-          puntosEq2 += parseInt(valor2);
-          $$('#totalEq2').text(puntosEq2);
-        }
-
-      }
-      else if ($$('input:checked').val() == 2) {
-        valor2 += 5;
-        if (player == "1") { puntosEq1 += valor2; $$('#totalEq1').text(puntosEq1); } else if (player == "2") { puntosEq2 += valor2; $$('#totalEq2').text(puntosEq2); }
-        $$('#' + player + chequedpoint).html(valor2);
-      } else if ($$('input:checked').val() == 6) {
-        $$('#' + player + chequedpoint).text('-');
-      } else {
-        $$('#' + player + chequedpoint).text('x');
-      }
-      break;
-  }
-
-
-
-}
-
-
-
 
 $$(document).on('page:init', '.page[data-name="contador"]', function (e) {
-  $$('#player1').text(jugador1);
-  $$('#player2').text(jugador2);
-
-
-
-
-
-
-
+  $$('#player1').text(jugador1.toUpperCase());
+  $$('#player2').text(jugador2.toUpperCase());
 })
