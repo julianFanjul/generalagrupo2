@@ -90,17 +90,17 @@ function sumarValor(v) {
 //esta funcion evita que si el boton ya fue clickeado vuelva a sumar ese valor 
 function restarValor() {
   switch (player) {
-    case jugadores[1]: tiradasJugador1 -= 1; puntosEq1 -= (parseInt($$('#' + botonPulsado + '>a').text()));
+    case jugadores[1]: puntosEq1 -= (parseInt($$('#' + botonPulsado + '>a').text())); $$('.' + player + 'points').text(puntosEq1);
       break;
-    case jugadores[2]: tiradasJugador2 -= 1; puntosEq2 -= (parseInt($$('#' + botonPulsado + '>a').text()));
+    case jugadores[2]: puntosEq2 -= (parseInt($$('#' + botonPulsado + '>a').text())); $$('.' + player + 'points').text(puntosEq2);
       break;
-    case jugadores[3]: tiradasJugador3 -= 1; puntosEq3 -= (parseInt($$('#' + botonPulsado + '>a').text()));
+    case jugadores[3]: puntosEq3 -= (parseInt($$('#' + botonPulsado + '>a').text())); $$('.' + player + 'points').text(puntosEq3);
       break;
-    case jugadores[4]: tiradasJugador4 -= 1; puntosEq4 -= (parseInt($$('#' + botonPulsado + '>a').text()));
+    case jugadores[4]: puntosEq4 -= (parseInt($$('#' + botonPulsado + '>a').text())); $$('.' + player + 'points').text(puntosEq4);
       break;
-    case jugadores[5]: tiradasJugador5 -= 1; puntosEq5 -= (parseInt($$('#' + botonPulsado + '>a').text()));
+    case jugadores[5]: puntosEq5 -= (parseInt($$('#' + botonPulsado + '>a').text())); $$('.' + player + 'points').text(puntosEq5);
       break;
-    case jugadores[6]: tiradasJugador6 -= 1; puntosEq6 -= (parseInt($$('#' + botonPulsado + '>a').text()));
+    case jugadores[6]: puntosEq6 -= (parseInt($$('#' + botonPulsado + '>a').text())); $$('.' + player + 'points').text(puntosEq6);
       break;
   }
 }//esta funcion evita que si el boton ya fue clickeado vuelva a sumar ese valor 
@@ -193,12 +193,14 @@ function limpiar() {
 
 function terminar() {
   if (puntosEq1 > puntosEq2 && puntosEq1 > puntosEq3 && puntosEq1 > puntosEq4 && puntosEq1 > puntosEq5 && puntosEq1 > puntosEq6) { alert('gano equipo 1'); }
-  if (puntosEq1 > puntosEq2 && puntosEq1 > puntosEq3 && puntosEq1 > puntosEq4 && puntosEq1 > puntosEq5 && puntosEq1 > puntosEq6) { alert('gano equipo 1'); }
-  if (puntosEq1 > puntosEq2 && puntosEq1 > puntosEq3 && puntosEq1 > puntosEq4 && puntosEq1 > puntosEq5 && puntosEq1 > puntosEq6) { alert('gano equipo 1'); }
-  if (puntosEq1 > puntosEq2 && puntosEq1 > puntosEq3 && puntosEq1 > puntosEq4 && puntosEq1 > puntosEq5 && puntosEq1 > puntosEq6) { alert('gano equipo 1'); }
+  if (puntosEq2 > puntosEq2 && puntosEq2 > puntosEq3 && puntosEq2 > puntosEq4 && puntosEq2 > puntosEq5 && puntosEq2 > puntosEq6) { alert('gano equipo 2'); }
+  if (puntosEq3 > puntosEq2 && puntosEq3 > puntosEq3 && puntosEq3 > puntosEq4 && puntosEq3 > puntosEq5 && puntosEq3 > puntosEq6) { alert('gano equipo 3'); }
+  if (puntosEq4 > puntosEq2 && puntosEq4 > puntosEq3 && puntosEq4 > puntosEq4 && puntosEq4 > puntosEq5 && puntosEq4 > puntosEq6) { alert('gano equipo 4'); }
+  if (puntosEq5 > puntosEq2 && puntosEq5 > puntosEq3 && puntosEq5 > puntosEq4 && puntosEq5 > puntosEq5 && puntosEq5 > puntosEq6) { alert('gano equipo 5'); }
+  if (puntosEq6 > puntosEq2 && puntosEq6 > puntosEq3 && puntosEq6 > puntosEq4 && puntosEq6 > puntosEq5 && puntosEq6 > puntosEq6) { alert('gano equipo 6'); }
   limpiar();
   location.reload();
-  jugador1 = "1";
+  jugador1 = "";
   jugador2 = "";
   jugador3 = "";
   jugador4 = "";
