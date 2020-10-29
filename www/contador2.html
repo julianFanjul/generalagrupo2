@@ -1,0 +1,161 @@
+<!-- We don't need a full layout in this file because this page will be parsed with Ajax.  -->
+<div class="page" data-name="contador2">
+    <div class="navbar">
+        <div class="navbar-inner sliding">
+            <div class="left">
+                <a href="#" class="link back">
+                    <i class="icon icon-back"></i>
+                    <span class="ios-only">Back</span>
+                </a>
+            </div>
+            <div class="title"></div>
+        </div>
+    </div>
+    <div class="page-content">
+        <div id="contador" class="row no-gap">
+
+        </div>
+        <button class="button button-outline button-round" onclick="limpiar()" id="limpiar"> limpiar </button>
+        <button class="button button-outline button-round" onclick="terminar()"> <a href="/index/">volver a jugar</a>
+        </button>
+
+        <!-- modal del 1 al 6 -->
+        <div class="sheet-modal my-sheet" style="height:auto;">
+            <div class=" toolbar">
+                <div class="toolbar-inner">
+                    <div class="left"></div>
+                    <div class="right"><a class=" link sheet-close button button-outline button-round" href=" #"
+                            id="anotarpoint" onclick="anotar(1)">anotar</a></div>
+                </div>
+            </div>
+            <div class="sheet-modal-inner">
+                <div class="list">
+                    <ul>
+                        <li>
+                            <label class="item-radio item-radio-icon-end item-content">
+                                <input type="radio" name="demo-radio-end" value="1" checked id="r1" />
+                                <i class="icon icon-radio"></i>
+                                <div class="item-inner">
+                                    <div class="item-title" id="1"></div>
+                                </div>
+                            </label>
+                        </li>
+                        <li>
+                            <label class="item-radio item-radio-icon-end item-content">
+                                <input type="radio" name="demo-radio-end" value="2" id="r2" />
+                                <i class="icon icon-radio"></i>
+                                <div class="item-inner">
+                                    <div class="item-title" id="2"></div>
+                                </div>
+                            </label>
+                        </li>
+                        <li>
+                            <label class="item-radio item-radio-icon-end item-content">
+                                <input type="radio" name="demo-radio-end" value="3" id="r3" />
+                                <i class="icon icon-radio"></i>
+                                <div class="item-inner">
+                                    <div class="item-title" id="3"></div>
+                                </div>
+                            </label>
+                        </li>
+                        <li>
+                            <label class="item-radio item-radio-icon-end item-content">
+                                <input type="radio" name="demo-radio-end" value="4" id="r4" />
+                                <i class="icon icon-radio"></i>
+                                <div class="item-inner">
+                                    <div class="item-title" id="4"></div>
+                                </div>
+                            </label>
+                        </li>
+                        <li>
+                            <label class="item-radio item-radio-icon-end item-content">
+                                <input type="radio" name="demo-radio-end" value="5" id="r5" />
+                                <i class="icon icon-radio"></i>
+                                <div class="item-inner">
+                                    <div class="item-title" id="5"></div>
+                                </div>
+                            </label>
+                        </li>
+                        <li>
+                            <label class="item-radio item-radio-icon-end item-content">
+                                <input type="radio" name="demo-radio-end" value="6" id="r6" />
+                                <i class="icon icon-radio"></i>
+                                <div class="item-inner">
+                                    <div class="item-title" id="6">-</div>
+                                </div>
+                            </label>
+                        </li>
+                        <li>
+                            <label class="item-radio item-radio-icon-end item-content">
+                                <input type="radio" name="demo-radio-end" value="7" id="r7" />
+                                <i class="icon icon-radio"></i>
+                                <div class="item-inner">
+                                    <div class="item-title">tachar</div>
+                                </div>
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- modal del 1 al 6 -->
+
+        <!-- modal escalera - full - poker - generala - generala doble -->
+        <div class="sheet-modal my-sheet2" style="height:auto;">
+            <div class=" toolbar">
+                <div class="toolbar-inner">
+                    <div class="left"></div>
+                    <div class="right"><a class=" link sheet-close button button-outline button-round" href=" #"
+                            onclick="anotar(2)">anotar</a></div>
+                </div>
+            </div>
+            <div class="sheet-modal-inner">
+                <div class="list">
+                    <ul>
+                        <li>
+                            <label class="item-radio item-radio-icon-end item-content">
+                                <input type="radio" name="demo-radio-end" value="1" checked id="p1" />
+                                <i class="icon icon-radio"></i>
+                                <div class="item-inner">
+                                    <div class="item-title" id="e1"></div>
+                                </div>
+                            </label>
+                        </li>
+                        <li>
+                            <label class="item-radio item-radio-icon-end item-content">
+                                <input type="radio" name="demo-radio-end" value="2" id="p2" />
+                                <i class="icon icon-radio"></i>
+                                <div class="item-inner">
+                                    <div class="item-title" id="e2"></div>
+                                </div>
+                            </label>
+                        </li>
+                        <li>
+                            <label class="item-radio item-radio-icon-end item-content">
+                                <input type="radio" name="demo-radio-end" value="6" id="p3" />
+                                <i class="icon icon-radio"></i>
+                                <div class="item-inner">
+                                    <div class="item-title" id="e3">-</div>
+                                </div>
+                            </label>
+                        </li>
+                        <li>
+                            <label class="item-radio item-radio-icon-end item-content">
+                                <input type="radio" name="demo-radio-end" value="7" id="p4" />
+                                <i class="icon icon-radio"></i>
+                                <div class="item-inner">
+                                    <div class="item-title" id="e4">tachar</div>
+                                </div>
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- modal del 1 al 6 -->
+    </div>
+</div>
+</div>
+</div>
+</div>
+</div>

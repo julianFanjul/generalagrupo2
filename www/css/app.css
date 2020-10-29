@@ -105,4 +105,30 @@
   display: flex;
 }
 
+button {
+  margin-top: 5px !important;
+}
 
+#limpiar{
+  margin-top: 10px;
+}
+
+#logo{ 
+  margin-top: 150px !important;
+  margin:auto !important;
+}
+#inicio{
+  margin:auto !important;
+}
+
+.indexx{
+  padding-top: 150px !important;
+}
+
+#cantt{
+  margin: auto !important ;
+}
+
+.ej {
+  margin-left: 110px !important;
+}
